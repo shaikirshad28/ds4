@@ -34,13 +34,77 @@
 
 <body>
 
-<form>
+<form id="form">
 
-    <h2>Student Management System</h2>
+    <h2>Student Registration</h2>
 
-    <p>Student Registration and Search System</p>
+    Student Name:
+    <input type="text" id="name"><br>
+
+    Roll Number:
+    <input type="text" id="roll"><br>
+
+    Email:
+    <input type="email" id="email"><br>
+
+    Department:
+    <select id="dept">
+        <option value="">Select</option>
+        <option>CSE</option>
+        <option>ECE</option>
+        <option>EEE</option>
+    </select>
+    <br>
+
+    Year:
+    <select id="year">
+        <option value="">Select</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+    </select>
+    <br>
+
+    <button type="submit">Register</button>
+    <button type="reset">Reset</button>
+
+    <p id="result"></p>
 
 </form>
+
+<script>
+
+document.getElementById("form").onsubmit = function(e) {
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let roll = document.getElementById("roll").value;
+    let email = document.getElementById("email").value;
+    let dept = document.getElementById("dept").value;
+    let year = document.getElementById("year").value;
+
+    if (name == "" || roll == "" || email == "" ||
+        dept == "" || year == "") {
+
+        document.getElementById("result").innerHTML =
+            "Please fill all the fields";
+
+    } else {
+
+        document.getElementById("result").innerHTML =
+            "Student Registered Successfully!<br><br>" +
+            "Name: " + name + "<br>" +
+            "Roll Number: " + roll + "<br>" +
+            "Email: " + email + "<br>" +
+            "Department: " + dept + "<br>" +
+            "Year: " + year;
+    }
+
+};
+
+</script>
 
 </body>
 </html>
